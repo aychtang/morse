@@ -1,36 +1,9 @@
+var dict = require('./dict.js');
 
 var morse = function(letter) {
 	if (letter === ' ') return '       ';
-	var codes = {
-		'a' : [".", "-"],
-		'b' : ["-", ".", ".", "."],
-		'c' : ["-", ".", "-", "."],
-		'd' : ["-", ".", "."],
-		'e' : ["."],
-		'f' : [".", ".", "-", "."],
-		'g' : ["-", "-", "."],
-		'h' : ['.','.','.','.'],
-		'i' : ['.','.'],
-		'j' : ['.','-','-','-'],
-		'k' : ['-','.','-'],
-		'l' : ['.','-','.','.'],
-		'n' : ['-','.'],
-		'm' : ['-','-'],
-		'o' : ['-','-','-'],
-		'p' : ['.','-','-','.'],
-		'q' : ['-','-','.','-'],
-		'r' : ['.', '-','.'],
-		's' : ['.','.','.'],
-		't' : ['-'],
-		'u' : ['.','.','-'],
-		'v' : ['.','.','.','-'],
-		'w' : ['.','-','-'],
-		'x' : ['-','.','.','-'],
-		'y' : ['-','.','-','-'],
-		'z' : ['-','-','.','.']
-	};
 
-	return codes[letter].join(' ');
+	return dict[letter].join(' ');
 };
 
 var mapStr = function(str, fn) {
@@ -54,3 +27,5 @@ var trimRight = function(str) {
 var morsify = function(str) {
 	return trimRight(mapStr(str, sentanceBuilder(morse)));
 };
+
+module.exports = morsify;
